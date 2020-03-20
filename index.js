@@ -7,12 +7,22 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const UserData = require('./models/userData');
+const loginController = require('./controllers/logins');
+
+const validateMiddleWare = (req,res,next) => {
+    if(req.body.Navn == ''){
+        console.log('User not created');
+        return res.redirect('/register')
+    }
+    next()
+};
+
 mongoose.connect('mongodb://localhost:27017/wow'), {useNewUrlParser:true};
 app.set('view engine','ejs');
 app.use(express.static('puplic'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
+app.use('/register/store',validateMiddleWare);
 
 app.listen(3000,()=>{
    console.log("App listening on port 3000")
@@ -64,3 +74,5 @@ app.post('/register/store', (req,res) => {
         res.redirect('/login')
     })
 });
+
+app.get('/login/auth', loginController);
