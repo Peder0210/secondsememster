@@ -5,9 +5,13 @@ const app = new express();
 const path = require('path');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false'), {useNewUrlParser:true};
+const bodyParser = require('body-parser');
+const UserData = require('./models/userData');
+mongoose.connect('mongodb://localhost:27017/wow'), {useNewUrlParser:true};
 app.set('view engine','ejs');
 app.use(express.static('puplic'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.listen(3000,()=>{
@@ -52,4 +56,11 @@ app.get('/login', (req,res) =>{
 
 app.get('/myPageUser', (req,res) =>{
     res.render('myPageUser')
+});
+
+app.post('/register/store', (req,res) => {
+    console.log(req.body);
+    UserData.create(req.body,(error,userdata) =>{
+        res.redirect('/login')
+    })
 });

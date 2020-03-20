@@ -40,54 +40,45 @@
 <body>
 
 <h1>Opret bruger</h1>
-
+<div>
+    <form action ="/register/store" method="POST">
     <br>
     <input
             id="name"
             type="text"
             placeholder="Navn"
             autocomplete="new-username"
+            name="Navn"
+
+
     />
     <br>
     <br>
       <input
               id="birthYear"
-              type="number"
+              type="text"
               placeholder="Fødselsår"
               autocomplete="off"
+              name="Birthday"
       />
     <br>
-    <br>Køn<br>
+
     <br>
-      <input
-              type="radio"
-              name="gender"
-              class="gender"
-              value="Kvinde"
-      />Kvinde
-    <br>
-    <br>
-      <input
-              type="radio"
-              name="gender"
-              class="gender"
-              value="Mand"
-      />Mand
-    <br>
-    <br>
-    <input
-            type="radio"
-            name="gender"
-            class="gender"
-            value="Andet"
-    />Andet
+<input
+        id="gender"
+        type="text"
+        placeholder="Man/Woman"
+        autocomplete="off"
+        name="Gender"
+/>
     <br>
     <br>
       <input
               id="phoneNumber"
-              type="number"
+              type="text"
               placeholder="Tlf nummer"
               autocomplete="off"
+              name="MobilNummer"
       />
     <br>
     <br>
@@ -96,6 +87,7 @@
               type="text"
               placeholder="Email"
               autocomplete="new-email"
+              name="Email"
       />
     <br>
     <br>
@@ -105,6 +97,7 @@
             type="text"
             placeholder="Bruger"
             autocomplete="new-user"
+            name="Username"
     />
     <br>
     <br>
@@ -113,6 +106,7 @@
             type="text"
             placeholder="Adgangskode"
             autocomplete="new-password"
+            name="Password"
     />
     <br>
     <br>
@@ -124,11 +118,11 @@
     <button
         id="registration_btn"
         value="Register"
-        onClick="createUser()"
     >Register</button>
     <br>
-
+    </form>
+</div>
     <script src="classes/User.js"></script>
-
+</div>
 </body>
 </html>
