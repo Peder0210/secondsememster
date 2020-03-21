@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const UserData = require('./models/userData');
 const loginController = require('./controllers/logins');
+const loginUserController = require('./controllers/loginUser');
 
 const validateMiddleWare = (req,res,next) => {
     if(req.body.Navn == ''){
@@ -75,4 +76,6 @@ app.post('/register/store', (req,res) => {
     })
 });
 
-app.get('/login/auth', loginController);
+
+
+app.post('/login', loginUserController);

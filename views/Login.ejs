@@ -41,12 +41,13 @@
 
 <br>Log ind <br>
 <br>
-<form action="/login/auth">
+<form action="/login" method="POST">
 <input
         type="text"
         id="enteredName"
         value=""
         placeholder="Brugernavn"
+        name ="Username"
 >
 <br>
 <br>
@@ -55,15 +56,11 @@
         id="enteredPass"
         value=""
         placeholder="Adgangskode"
+        name="Password"
 >
 <br>
 <br>
-<input
-        id="adminsLogin_btn"
-        type="submit"
-        value="Login Admin"
-        onClick="adminLogin()"
-/>
+
 <input
         id="login_btn"
         type="submit"
