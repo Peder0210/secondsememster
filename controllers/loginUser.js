@@ -2,13 +2,16 @@ const bcrypt  = require('bcrypt');
 const User = require('../models/userData');
 
 
+
+
+
 module.exports = (req,res) =>{
     const {Username, Password} = req.body;
-console.log(req.body);
+    console.log(req.body);
     User.findOne({Username:Username},(error,User) =>{
         if(User){
             bcrypt.compare(Password, User.Password, (error, same) =>{
-                if(User.Password==Password){
+                if(same){
                     res.redirect('/myPageUser')
 
                 }

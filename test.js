@@ -11,3 +11,13 @@ administrator.create({
     Password: "String",
 
 });
+
+lesson.create({
+    Title: "String",
+    Locales: "String",
+    Time: "String",
+    Duration: "String",
+    Participants: "String",
+    Teachers: "String",
+
+});
