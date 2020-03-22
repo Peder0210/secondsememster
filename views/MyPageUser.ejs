@@ -46,14 +46,25 @@
 </style>
 
 <br>
+<script>
+    function showMyPageInfo () {
+        var url = window.location.pathname + window.location.search;
+        var getQuery = url.split('?')[1];
 
+
+        var params = getQuery.split('&');
+     document.getElementById('navn').innerHTML = params[0].split('=')[1];
+        document.getElementById('email').innerHTML = params[1].split('=')[1];
+    }
+</script>
 <body onload="showMyPageInfo()">
 
-
+<p>Din konto's navn:</p>
 <p id="navn" value=""></p>
 <p id="fødselsÅr" value=""></p>
 <p id="køn" value=""></p>
 <p id="telefonNr" value=""></p>
+<p> Din Email:</p>
 <p id="email" value=""></p>
 
 

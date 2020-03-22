@@ -12,7 +12,9 @@ module.exports = (req,res) =>{
         if(User){
             bcrypt.compare(Password, User.Password, (error, same) =>{
                 if(same){
-                    res.redirect('/myPageUser')
+                    req.session.userId = User._id;
+                    console.log(User);
+                    res.redirect('/myPageUser?username='+Username+"&Email="+User.Email)
 
                 }
                 else{

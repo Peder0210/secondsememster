@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const UserData = require('./models/userData');
 const loginController = require('./controllers/logins');
 const loginUserController = require('./controllers/loginUser');
+const expressSession = require('express-session');
 
 const validateMiddleWare = (req,res,next) => {
     if(req.body.Navn == ''){
@@ -18,12 +19,17 @@ const validateMiddleWare = (req,res,next) => {
     next()
 };
 
+app.use(expressSession({
+    secret: 'Temno Player'
+}));
 mongoose.connect('mongodb://localhost:27017/wow'), {useNewUrlParser:true};
 app.set('view engine','ejs');
 app.use(express.static('puplic'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/register/store',validateMiddleWare);
+
+
 
 app.listen(3000,()=>{
    console.log("App listening on port 3000")
@@ -66,7 +72,8 @@ app.get('/login', (req,res) =>{
 });
 
 app.get('/myPageUser', (req,res) =>{
-    res.render('myPageUser')
+    var id = req.params.id;
+    res.render('myPageUser', {user: id})
 });
 
 app.post('/register/store', (req,res) => {
@@ -77,5 +84,5 @@ app.post('/register/store', (req,res) => {
 });
 
 
-
 app.post('/login', loginUserController);
+
