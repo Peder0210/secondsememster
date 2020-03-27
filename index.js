@@ -10,6 +10,8 @@ const UserData = require('./models/userData');
 const loginController = require('./controllers/logins');
 const loginUserController = require('./controllers/loginUser');
 const expressSession = require('express-session');
+const logoutController = require("./controllers/logout")
+
 
 const validateMiddleWare = (req,res,next) => {
     if(req.body.Navn == ''){
@@ -86,3 +88,4 @@ app.post('/register/store', (req,res) => {
 
 app.post('/login', loginUserController);
 
+app.get("/auth/login", logoutController)
