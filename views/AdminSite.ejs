@@ -47,86 +47,128 @@
 <body>
 
 <br>
+<form action="/AdminSite" method="POST">
 <text>Undervisningstitel:</text>
 
     <input
             type="text"
             id="title"
             value=""
-            placeholder="Undervisningstitel">
+            placeholder="Undervisningstitel"
+            name="Title">
 
 <br>
 <br>
-     Tid og sted:
+     Sted:
 
     <input
             type="text"
             id="location"
             value=""
-            placeholder="Sted">
+            placeholder="Sted"
+            name="Locales">
+    <br>
+    <br>
+    Tid:
+    <input
+            type="text"
+            id="time"
+            value=""
+            placeholder="Time"
+            name="Time">
+    <br>
+    <br>
+    Duration:
+    <input
+            type="text"
+            id="duration"
+            value=""
+            placeholder="Duration"
+            name="Duration">
+    <br>
+    <br>
+    Participants:
+    <input
+            type="text"
+            id="participants"
+            value=""
+            placeholder="Participants"
+            name="Participants">
+    <br>
+    <br>
+    Teachers:
+    <input
+            type="text"
+            id="teachers"
+            value=""
+            placeholder="Teachers"
+            name="Teachers">
+    <br>
 
-    <select id="time">
-        <option
-                value=""
-                selected="selected">-Vælg tidspunkt-</option>
+    <!--  <select id="time">
+          <option
+                  value=""
+                  selected="selected">-Vælg tidspunkt-</option>
 
-        <option value="17.00">17.00</option>
-        <option value="17.30">17.30</option>
-        <option value="18.00">18.00</option>
-        <option value="18.30">18.30</option>
-        <option value="19.00">19.00</option>
-        <option value="19.30">19.30</option>
-        <option value="20.00">20.00</option>
-        <option value="20.30">20.30</option>
-        <option value="21.00">21.00</option>
-
-
-    </select>
-
-<br>
-<br>
-
-    Dato:
-    <select id="date">
-        <option value="" selected="selected">-Dag-</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="13">13</option>
-        <option value="17">17</option>
-        <option value="20">20</option>
-
-    </select>
-
-<select id="month">
-    <option value="" selected="selected">Måned</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-
-</select>
+          <option value="17.00">17.00</option>
+          <option value="17.30">17.30</option>
+          <option value="18.00">18.00</option>
+          <option value="18.30">18.30</option>
+          <option value="19.00">19.00</option>
+          <option value="19.30">19.30</option>
+          <option value="20.00">20.00</option>
+          <option value="20.30">20.30</option>
+          <option value="21.00">21.00</option>
 
 
-<select id="year">
-    <option value="" selected="selected">År</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
+      </select>
 
-</select>
+  <br>
+  <br>
+
+      Dato:
+      <select id="date">
+          <option value="" selected="selected">-Dag-</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="13">13</option>
+          <option value="17">17</option>
+          <option value="20">20</option>
+
+      </select>
+
+  <select id="month">
+      <option value="" selected="selected">Måned</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+
+  </select>
+
+
+  <select id="year">
+      <option value="" selected="selected">År</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+
+  </select>
+
+
 
 <br>
 <br>
@@ -176,15 +218,15 @@
 
 <br>
 <br>
-
-    <button
+-->
+    <br>
+    <br>
+    <input
         id="createClass_btn"
         type="submit"
-        value="Opret undervisningstime"
-        onClick="createDancingClass()">Create Class
-    </button>
+        value="Opret undervisningstime"/>
 
-
+</form>
 <br>
 
 <script src="classes/DancingClass.js"></script>

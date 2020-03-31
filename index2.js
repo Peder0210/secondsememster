@@ -11,8 +11,7 @@ const loginController = require('./controllers/logins');
 const loginUserController = require('./controllers/loginUser');
 const expressSession = require('express-session');
 const logoutController = require("./controllers/logout")
-const createLesson = require("./controllers/createLesson")
-const Lesson = require("./models/lesson")
+
 
 const validateMiddleWare = (req,res,next) => {
     if(req.body.Navn == ''){
@@ -90,10 +89,3 @@ app.post('/register/store', (req,res) => {
 app.post('/login', loginUserController);
 
 app.get("/auth/login", logoutController)
-
-app.post('/AdminSite', (req,res) => {
-    console.log(req.body);
-    Lesson.create(req.body,(error,lesson) =>{
-        res.redirect('/AdminSite')
-    })
-});
