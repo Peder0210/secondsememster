@@ -13,6 +13,7 @@ const expressSession = require('express-session');
 const logoutController = require("./controllers/logout")
 const createLesson = require("./controllers/createLesson")
 const Lesson = require("./models/lesson")
+const getInfo = require("./controllers/getInfo");
 
 const validateMiddleWare = (req,res,next) => {
     if(req.body.Navn == ''){
@@ -26,6 +27,7 @@ app.use(expressSession({
     secret: 'Temno Player'
 }));
 mongoose.connect('mongodb://localhost:27017/wow'), {useNewUrlParser:true};
+var db = mongoose.connection;
 app.set('view engine','ejs');
 app.use(express.static('puplic'));
 app.use(bodyParser.json());
@@ -76,11 +78,13 @@ app.get('/login', (req,res) =>{
 
 app.get('/myPageUser', (req,res) =>{
     var id = req.params.id;
-    res.render('myPageUser', {user: id})
+    res.render('myPageUser', {user: id});
+
 });
 
 app.post('/register/store', (req,res) => {
     console.log(req.body);
+
     UserData.create(req.body,(error,userdata) =>{
         res.redirect('/login')
     })
@@ -97,3 +101,20 @@ app.post('/AdminSite', (req,res) => {
         res.redirect('/AdminSite')
     })
 });
+
+
+
+app.get("/userInfo", (req,res) =>{
+  UserData.findOne({Username:req.query.username},(error,result)=>{
+       if(result){
+           res.send(JSON.stringify(result))
+       }
+       else{
+           res.send("No profiles found")
+       }
+   })
+
+});
+
+app.use((req,res) =>res.render('notfound'));
+

@@ -49,30 +49,70 @@
 
 <br>
 <script>
-    function showMyPageInfo () {
-        var url = window.location.pathname + window.location.search;
-        var getQuery = url.split('?')[1];
+function kasper () {
+    console.log("hej")
+    var url = window.location.pathname + window.location.search;
+    var getQuery = url.split('?')[1];
+    var params = getQuery.split('=')[1];
+    console.log(params);
 
 
-        var params = getQuery.split('&');
-     document.getElementById('navn').innerHTML = params[0].split('=')[1];
-        document.getElementById('email').innerHTML = params[1].split('=')[1];
-    }
+    fetch("http://localhost:3000/userInfo?username=" + params).then((res) => {
+       return  res.json();
+    }).then((data) =>{
+       /* document.getElementById("navn").innerHTML = data.Navn;
+        document.getElementById("fødselsÅr").innerHTML = data.Birthday;
+        document.getElementById("køn").innerHTML = data.Gender;
+        document.getElementById("telefonNr").innerHTML = data.MobilNummer;
+        document.getElementById("email").innerHTML = data.Email;
+        document.getElementById("username").innerHTML = data.Username;
+
+*/var parent = document.getElementById("output");
+
+
+        for(i=0;i<Object.keys(data).length;i++){
+
+
+            // Text
+            var div1 = document.createElement("div");
+            var p = document.createElement("p");
+            p.appendChild(document.createTextNode(Object.keys(data)[i]));
+            div1.appendChild(p);
+
+            // Value
+            var div2 = document.createElement("div");
+            var p = document.createElement("p");
+            p.appendChild(document.createTextNode(data[Object.keys(data)[i]]));
+            div2.appendChild(p);
+
+            parent.appendChild(div1);
+            parent.appendChild(div2);
+        }
+    }).catch((e) => {
+        console.log(e);
+    })
+}
 </script>
-<body onload="showMyPageInfo()">
-
-<p>Din konto's navn:</p>
+<button onclick="kasper()">mure mure mure sten den er sjov</button>
+<!--<p>Din konto's navn:</p>
 <p id="navn" value=""></p>
+<p>Din fødselsdag:</p>
 <p id="fødselsÅr" value=""></p>
+<p>Dit køn:</p>
 <p id="køn" value=""></p>
+<p>Dit telefonnummer:</p>
 <p id="telefonNr" value=""></p>
 <p> Din Email:</p>
 <p id="email" value=""></p>
+<p> Dit username</p>
+<p id="username" value=""></p>
 
 
+-->
+<div id="output" style="display:grid;grid-template-columns:auto auto;"></div>
 <br>
 
 
 </body>
-<script src="classes/User.js"></script>
+
 </html>

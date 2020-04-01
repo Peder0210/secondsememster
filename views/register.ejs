@@ -54,28 +54,37 @@
     />
     <br>
     <br>
-      <input
-              id="birthYear"
-              type="text"
-              placeholder="Fødselsår"
-              autocomplete="off"
-              name="Birthday"
-      />
+
+        <p>Birthday:</p>
+        <br>
+
+        <input type="date" id="Birthday" name="Birthday"
+               value="2020-04-01"
+               min="1900-01-01" max="2020-04-01">
+        <!--    <input
+                  id="birthYear"
+                  type="number"
+                  placeholder="Fødselsår"
+                  autocomplete="off"
+                  name="Birthday"
+          />  -->
     <br>
 
     <br>
-<input
-        id="gender"
-        type="text"
-        placeholder="Man/Woman"
-        autocomplete="off"
-        name="Gender"
-/>
+
+        <p>Choose a gender:</p>
+
+        <select name="Gender">
+            <option value="Man" >Man</option>
+            <option value="Woman" >Kvinde</option>
+            <option value="Andet" >Andet</option>
+
+        </select>
     <br>
     <br>
       <input
               id="phoneNumber"
-              type="text"
+              type="number"
               placeholder="Tlf nummer"
               autocomplete="off"
               name="MobilNummer"
@@ -91,7 +100,7 @@
       />
     <br>
     <br>
-    <br>
+
     <input
             id="username"
             type="text"
@@ -115,10 +124,13 @@
         <button
         >Go to Login</button></a>
 
-    <button
-        id="registration_btn"
-        value="Register"
-    >Register</button>
+
+        <input
+                id="registration_btn"
+                type="submit"
+                value="Register"
+
+        />
     <br>
     </form>
 </div>

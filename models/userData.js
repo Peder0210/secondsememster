@@ -13,9 +13,9 @@ const userDataSchema = new Schema ({
         required: true
     },
     Navn: String,
-    Birthday: String,
+    Birthday: Date,
     Gender: String,
-    MobilNummer: String,
+    MobilNummer: Number,
     Email: String,
 
 });

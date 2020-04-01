@@ -14,7 +14,8 @@ module.exports = (req,res) =>{
                 if(same){
                     req.session.userId = User._id;
                     console.log(User);
-                    res.redirect('/myPageUser?username='+Username+"&Email="+User.Email)
+                    //res.redirect('/myPageUser?username='+Username+"&Email="+User.Email)
+                    res.redirect('/myPageUser?username='+Username)
 
                 }
                 else{
